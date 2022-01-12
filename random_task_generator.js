@@ -7,6 +7,7 @@ var tasks = [
 'clear backroom table',
 'vacuum bedroom',
 'laundry',
+'take out porch trash',
 'vacuum living room and kitchen',
 'clean fixtures in bathroom',
 'clean the shame corner',
