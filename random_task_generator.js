@@ -23,19 +23,19 @@ function getRandomInt(max) {
 
 
 
-const http = require('http');
-const fs = require('fs');
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.writeHead(200, 'Content-Type', 'text/plain');
-  fs.createReadStream('index.html').pipe(res)
-  var my_task = tasks[getRandomInt(tasks.length)];
-  res.write(my_task);
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+  const express = require("express");
+  const app = express();
+  
+  app.listen(3000, () => {
+    console.log("Application started and Listening on port 3000");
+  });
+  
+  app.get("/", (req, res) => {
+    var my_task = tasks[getRandomInt(tasks.length)];
+    res.send(`
+    <html> 
+      <body>
+        <h1>${my_task}
+      </body>
+    </html>`);
+  });
