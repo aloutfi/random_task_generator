@@ -33,8 +33,7 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, 'Content-Type', 'text/plain');
   fs.createReadStream('index.html').pipe(res)
   var my_task = tasks[getRandomInt(tasks.length)];
-  console.log(my_task);
-  res.end(my_task);
+  res.write(my_task);
 });
 
 server.listen(port, hostname, () => {
