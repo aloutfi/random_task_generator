@@ -20,6 +20,22 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
-var my_task = tasks[getRandomInt(tasks.length)];
 
-console.log(my_task)
+
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  
+  var my_task = tasks[getRandomInt(tasks.length)];
+  console.log(my_task);
+  res.end(my_task);
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
