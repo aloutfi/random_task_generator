@@ -17,7 +17,7 @@
         const responseText = document.getElementById('response-output')
 
         fetchBtn.addEventListener('click', async () => {
-          const response = await fetch('/.netlify/functions/hello-world').then(
+          const response = await fetch('/.netlify/functions/random_task_generator.js').then(
             response => response.json()
           )
 
