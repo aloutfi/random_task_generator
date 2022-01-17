@@ -26,6 +26,8 @@ exports.handler = async function(event, context) {
   console.log(`Task requested: ${my_task}`)
   return {
       statusCode: 200,
-      body: my_task
+      body: JSON.stringify({
+        message: my_task
+      })
   };
 }
